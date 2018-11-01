@@ -15,9 +15,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="./assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
-      <link href="./assets/css/flux.css" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <link href="./assets/css/flux.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -51,12 +49,12 @@
               <p>providers</p>
             </a>
           </li>
-          <li class="nav-item " onclick="nav(this.id)" id="logs">
+         <!--  <li class="nav-item " onclick="nav(this.id)" id="logs">
             <a class="nav-link">
               <i class="material-icons">list</i>
               <p>Logs</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item ">
             <a class="nav-link" href="https://github.com/quadroloop/flux">
               <i class="fa fa-github"></i>
@@ -143,7 +141,7 @@
                 <div class="card-header valueCard">
                    <div class="row mx-1">
                        <div class="col-md-9 pt-1">
-                           <h1 class="value"><img src="./assets/img/ether.png" width="40px;"> 0</h1>
+                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="cbalance">1.113123123</span></h3>
                        </div>
                    </div>
                 </div>
@@ -166,7 +164,7 @@
                    <div class="row mx-1">
                        
                        <div class="col-md-9 pt-1">
-                           <h1 class="value"><img src="./assets/img/ether.png" width="40px;"> 0</h1>
+                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="geth">1.00009999</span></h3>
                        </div>
                    </div>
                 </div>
@@ -187,7 +185,7 @@
                 <div class="card-header valueCard">
                    <div class="row mx-1">
                        <div class="col-md-9 pt-1">
-                           <h1 class="value"><img src="./assets/img/ether.png" width="40px;"> 0</h1>
+                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="leth">1.999999</span></h3>
                        </div>
                    </div>
                 </div>
@@ -211,10 +209,10 @@
                     <input type="text" class="card input-x" placeholder="Account Name.." id="name">
                   </div>
                   <div class="col-md-5">
-                    <input type="text" class="card input-x" placeholder="Account Address here.." id="add">
+                    <input type="text" class="card input-x" placeholder="Account Address here.." id="address">
                   </div>
                <div class="col-md-1 ">
-                    <button class="btn btn-info"><i class="fa fa-plus mr-2"></i> Add Account</button>
+                    <button class="btn btn-info" onclick="addAccount();"><i class="fa fa-plus mr-2"></i> Add Account</button>
                   </div>
                 </div>
                        <div class="card">
@@ -224,7 +222,7 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                  <!--   <table class="table">
+                    <table class="table">
                       <thead class="info">
                         <th>
                           Avatar
@@ -253,9 +251,9 @@
 
                           
                       </tbody>
-                    </table> -->
+                    </table>
 
-                    <h3><i class="fa fa-code-fork p-2" id="noData"></i> No accounts being tracked.</h3>
+                    <!-- <h3><i class="fa fa-code-fork p-2" id="noData"></i> No accounts being tracked.</h3> -->
 
                   </div>
                 </div>
@@ -287,6 +285,7 @@
     </div>
   </div>
   <!--   Core JS Files   -->
+  <script src="./assets/js/swal2.js"></script>
   <script src="./assets/js/web3.js"></script>
   <script src="./assets/js/flux.js"></script>
   <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>

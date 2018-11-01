@@ -6,8 +6,13 @@
 var cpage = "dashboard";
 var cwindow = "p_dashboard";
 
+function updateBanner(text) {
+   document.getElementById("banner").innerText = text;
+}
+
 function nav(link){
     document.getElementById(cpage).classList.remove("active");
+    updateBanner(link);
     switch(link){
         case 'dashboard':
               document.getElementById(link).classList.add("active");
@@ -42,3 +47,13 @@ function nav(link){
     }
 }
 
+function addAccount() {
+   var name = document.getElementById("name").value;
+   var address = document.getElementById("address").value;
+   
+   if(!name || !address) {
+      swal("Error","incomplete data provided","error");
+   }else{
+    
+   }      
+}
