@@ -80,11 +80,22 @@ li {
     display:  none;
 }
 
-#add {
+.input-x {
     margin-top: 5px;
     padding: 9px;
     width:  100%;
     border-radius: 2px;
     border: 0;
     
+}
+
+.avatar-circle {
+    border-radius: 73px;
+    border: 2px solid #ddd;
+    width: 73px;
+    height: 73px;
+}
+
+#banner {
+   text-transform:  capitalize;
 }
