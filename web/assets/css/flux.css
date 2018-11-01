@@ -2,6 +2,16 @@ li {
     cursor: pointer;
 }
 
+tr {
+    transition: 0.5s;
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color: lightblue;
+    transition: 0.5s;
+}
+
 .sidebar[data-color="flux"] li.active > a {
     background: linear-gradient(to right, #1EF6BE, #64BBF6);
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.0), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
@@ -48,6 +58,10 @@ li {
 }
 
 #csm {
+    display: none;
+}
+
+#clg {
     display: none;
 }
 

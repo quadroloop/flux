@@ -49,12 +49,12 @@
               <p>providers</p>
             </a>
           </li>
-         <!--  <li class="nav-item " onclick="nav(this.id)" id="logs">
+          <li class="nav-item " onclick="nav(this.id)" id="settings">
             <a class="nav-link">
               <i class="material-icons">list</i>
-              <p>Logs</p>
+              <p>Settings</p>
             </a>
-          </li> -->
+          </li>
           <li class="nav-item ">
             <a class="nav-link" href="https://github.com/quadroloop/flux">
               <i class="fa fa-github"></i>
@@ -89,8 +89,13 @@
         <div class="container-fluid" id="p_dashboard">
             
           <div class="row">
-              
-              
+
+          <div id="noAcc">
+            <h2 class="pb-2"><i class="material-icons">bubble_charts</i> No account being watched.</h2>
+            <button class="btn btn-info mb-4 ml-3" onclick="createAcc();"><i class="fa fa-plus mr-2"></i> Add an Account</button>
+          </div>    
+
+
               <div class="container card" id="csm">
                    <div class="card-profile">
 
@@ -100,10 +105,10 @@
                     <img src="./assets/img/avatar1.png" class="avatar">  
                  </div>  
                   </center>
-                  <h6 class="card-category text-gray"><i class="fa fa-circle text-info"></i> Account 1</h6>
+                  <h6 class="card-category text-gray"><i class="fa fa-circle text-info"></i> <span id="n_sm"></span></h6>
                  <h6 class="card-category text-gray provider"><i class="fa fa-circle text-danger"></i> Ropsten Test Network</h6>
 
-                  <span class="address small">0x13B480D2027Ce3E.......abd61A8</span>
+                  <span class="address small" id="addr_sm"></span>
                   <hr>
                   <button class="btn btn-warning btn-round btn-sm">copy</button>
                   <button class="btn btn-info btn-round btn-sm">change</button>
@@ -121,9 +126,9 @@
                           <img src="./assets/img/avatar1.png" class="avatar">
                       </div>
                        <div class="col-md-5 py-2">
-                           <span class="text-dark"><i class="fa fa-circle text-info"></i> Account 1</span>
+                           <span class="text-dark"><i class="fa fa-circle text-info"></i> <span id="n_lg"></span></span>
                            <br>
-                           <span class="address small">0x13B480D2027Ce3E74E41Aa8fe5F7D81b5abd61A8</span>
+                           <span class="address small" id="addr_lg"></span>
                       </div>
                         <div class="col-md-6 py-2 mt-1">
                         <button class="btn btn-danger float-right"><i class="fa fa-close mr-1"></i> Remove</button>
@@ -134,6 +139,7 @@
               </div>
             
           </div>
+
           <div class="row delta">
               
             <div class="col-md-4">
@@ -141,7 +147,7 @@
                 <div class="card-header valueCard">
                    <div class="row mx-1">
                        <div class="col-md-9 pt-1">
-                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="cbalance">1.113123123</span></h3>
+                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="cbalance">0</span></h3>
                        </div>
                    </div>
                 </div>
@@ -151,7 +157,7 @@
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i>updates every 2 seconds
+                    <i class="material-icons">access_time</i>updates every 2 ms
                   </div>
                 </div>
               </div>
@@ -164,7 +170,7 @@
                    <div class="row mx-1">
                        
                        <div class="col-md-9 pt-1">
-                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="geth">1.00009999</span></h3>
+                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="geth">0</span></h3>
                        </div>
                    </div>
                 </div>
@@ -174,7 +180,7 @@
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i>updates every 2 seconds
+                    <i class="material-icons">access_time</i>updates every 2 ms
                   </div>
                 </div>
               </div>
@@ -185,7 +191,7 @@
                 <div class="card-header valueCard">
                    <div class="row mx-1">
                        <div class="col-md-9 pt-1">
-                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="leth">1.999999</span></h3>
+                           <h3 class="value"><img src="./assets/img/ether.png" width="25px;"> <span id="leth">0</span></h3>
                        </div>
                    </div>
                 </div>
@@ -195,7 +201,7 @@
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i>updates every 2 seconds
+                    <i class="material-icons">access_time</i>updates every 2 ms
                   </div>
                 </div>
               </div>
@@ -234,26 +240,15 @@
                           Address
                         </th>
                       </thead>
-                      <tbody>
+                      <tbody id="accountList">
 
-                        <tr>
-                          <td>
-                            <img src="./assets/img/avatar1.png" class="avatar">
-                          </td>
-                          <td>
-                            Doger
-                          </td>
-                          <td>
-                            0x6dA9B0eB9D9AaDD74151B2dB19682De09B427147
-                          </td>
-                        </tr>
-
+                      
 
                           
                       </tbody>
                     </table>
 
-                    <!-- <h3><i class="fa fa-code-fork p-2" id="noData"></i> No accounts being tracked.</h3> -->
+                    <h3 id="noData"><i class="fa fa-code-fork p-2"></i> No accounts being tracked.</h3>
 
                   </div>
                 </div>
@@ -278,9 +273,12 @@
                 </div>
               </div>
           
-            <div class="container-fluild page p-3" id="p_logs">
-                <h3><i class="fa fa-list"></i> Nothing to show yet.</h3>
-              </div>
+            <div class="container-fluild page p-3" id="p_settings">
+                <h3><i class="fa fa-trash"></i> clear memory</h3>
+                <p>Delete, accounts and save data on these device</p>
+                <button class="btn btn-danger" onclick="clearData();"><i class="fa fa-trash mr-2"></i> Clear</button>
+
+            </div>
       
     </div>
   </div>
