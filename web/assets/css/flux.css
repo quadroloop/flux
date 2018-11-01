@@ -1,0 +1,90 @@
+li {
+    cursor: pointer;
+}
+
+.sidebar[data-color="flux"] li.active > a {
+    background: linear-gradient(to right, #1EF6BE, #64BBF6);
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.0), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+}
+
+.avatar {
+    border-radius: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+.value {
+    color: #fff;
+}
+
+.address {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.provider {
+    border: 1.5px solid #ccc;
+    border-radius: 50px;
+    padding: 5px 10px 5px 10px;
+}
+
+
+.toolbtn {
+   float: right !important;
+}
+
+.delta {
+    border-left: 4px solid  #1EF6BE;
+    border-top: 4px solid #64BBF6;
+    border-right: 4px solid  #1EF6BE;
+    border-bottom: 4px solid #64BBF6;
+    border-radius: 10px;
+}
+
+.valueCard{
+    background:  linear-gradient(to right, #1EF6BE, #64BBF6) !important;
+    color #fff !important;
+}
+
+#csm {
+    display: none;
+}
+
+@media(max-width: 900px){
+    .value {
+        text-align: center;
+    }
+    
+    .ethicon {
+        display: none;
+    }
+    
+    
+}
+
+@media(max-width: 1020px){
+ 
+     #csm {
+        display: block;
+    }
+    
+    #clg {
+        display: none;
+    }
+    
+  
+}
+
+.page {
+    display:  none;
+}
+
+#add {
+    margin-top: 5px;
+    padding: 9px;
+    width:  100%;
+    border-radius: 2px;
+    border: 0;
+    
+}
