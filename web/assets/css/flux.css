@@ -1,3 +1,4 @@
+
 li {
     cursor: pointer;
 }
@@ -112,4 +113,12 @@ tr:hover {
 
 #banner {
    text-transform:  capitalize;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.toastify {
+    z-index: 9999;
 }
