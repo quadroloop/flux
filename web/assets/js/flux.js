@@ -242,7 +242,7 @@ var toast_type = {
 function notif(message,type){
   Toastify({
   text: message,
-  duration: 3000,
+  duration: 5000,
   newWindow: true,
   close: true,
   gravity: "top",
