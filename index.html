@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
@@ -120,8 +119,6 @@
                   <button class="btn btn-warning btn-round btn-sm" data-toggle="tooltip" data-placement="top" title="Click to copy address" onclick="copyAddress('addr_lg',this);"><i class="fa fa-copy mr-1"></i> copy</button>
                   <button class="btn btn-info btn-round btn-sm" onclick="createAcc();">change</button>
                   <button class="btn btn-danger btn-round btn-sm" onclick="deleteAddress();">remove</button>
-                 
-
                 </div>
               </div>
             </div>
@@ -248,11 +245,7 @@
                           Address
                         </th>
                       </thead>
-                      <tbody id="accountList">
-
-                      
-
-                          
+                      <tbody id="accountList">   
                       </tbody>
                     </table>
 
@@ -302,5 +295,13 @@
   <script src="./assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
  
 </body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128576292-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-128576292-1');
+</script>
 </html>
