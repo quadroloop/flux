@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ficc Miner test</title>
+	 <link href="./assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
+     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+     <link href="./assets/css/flux.css" rel="stylesheet" />
+</head>
+<style>
+  #contractCard, #contractList {
+  	display: none;
+  }
+
+
+</style>
+<body>
+   <center>
+   	  <div class="col-lg-6 col-md-12">
+              <div class="card mt-5">
+                <div class="card-header card-header-primary">
+                  <img src="./assets/img/ficc.png" width="112">
+                  <p class="card-category py-3"><i class="fa fa-circle text-info"></i> Miner consumption test</p>
+                </div>
+                              <div class="m-2" id="loginBtn">
+                             	  <button class="btn btn-primary my-3" onclick="metamaskLogin()"> Login with metamask</button>
+                             </div>	  
+
+              <div class="m-3" id="contractCard">
+                <div class="container p-3 bg-light rounded border">
+                	  <span><i class="fa fa-clipboard mr-2 pb-2"></i>Miner:(Your Address)</span>
+                	  <p class="address" id="minerAddr">...</p>
+                	  <hr>
+                	   <span><i class="fa fa-clipboard mr-2 pb-2"></i>Selected Contract Instance:</span>
+                	  <p class="address" id="cAddr">...</p>
+
+
+                	  <div class="px-2">
+                	  	 <input type="text" class="form-control" placeholder="value to consume">
+                	  </div>
+                	    <button class="btn btn-warning my-3" onclick="consume();"> Consume Balance</button>
+
+                </div>
+            </div>
+
+             <div id="contractList" class="container">
+               <button class="btn btn-primary">Available Contract Instances</button>
+               <hr>
+                <div class="table-responsive px-2">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Address
+                        </th>
+                      </thead>
+                      <tbody id="addrList">
+                      
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   </center>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script>
+    var socketURL = "https://nomad-bs.000webhostapp.com/socket.php";
+	var minerAddress;
+	var cAcc;
+
+	var cABI = [
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "miner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "consume",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "consumer",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_consumer",
+				"type": "address"
+			},
+			{
+				"name": "_miner",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "loaded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "consumed",
+		"type": "event"
+	}
+];
+
+var ficc = web3.eth.contract(cABI);
+
+
+function consume() {
+  if(cAcc){	
+  	window.web3.eth.getBalance(cAcc,function (error, result) {
+     var totalbalance = result.toNumber();
+
+     var ficcMiner = ficc.at(cAcc);
+     
+
+	ficcMiner.consume(totalbalance,(err,res)=>{
+      console.log(res);
+    });
+    });
+	
+
+  }else{
+    alert("no selected contract instance!!, select one, to continue");
+  }
+}
+
+
+	function metamaskLogin(){
+	 if (typeof web3 !== 'undefined') {
+     if(web3.eth.coinbase !== null){
+      web3 = new window.Web3(window.web3.currentProvider);
+      web3.personal.sign(window.web3.fromUtf8("Logging in as FICC MINER..."), window.web3.eth.coinbase,(data)=>{
+        if(data == null){
+
+          minerAddress = web3.eth.coinbase;
+          openTester();
+
+         }});
+      }else{
+        alert("Metamask is locked Unlock metamask to continue");
+      }
+    }else{
+       alert("Sorry, Metamask is not supported on your device",);
+  }
+}
+
+  function openTester(){
+  	   axios.get(socketURL+'?setMiner='+minerAddress);
+  	   document.getElementById("loginBtn").style.display = "none"
+       document.getElementById("contractList").style.display = "block";
+       document.getElementById("contractCard").style.display = "block";
+       document.getElementById("minerAddr").innerHTML = minerAddress;
+   }
+
+   function selectAddress(address){
+   	  document.getElementById('cAddr').innerHTML = address;
+   	  cAcc = address;
+   }
+
+   var deltabin = [];
+
+
+   setInterval(()=>{
+   	  if(minerAddress){
+   	  	axios.get(socketURL+"?readInstance="+minerAddress)
+   	  	.then((res)=>{
+   	  		var data = res.data.split(",");
+   	  		for(var i = 0; i < data.length;i++){
+   	  			if(deltabin.indexOf(data[i]) == -1){
+   	  			document.getElementById("addrList").innerHTML += `
+   	  			 <tr title="click to select this contract instance" onclick="selectAddress('${data[i]}')">
+                  <td class="text-dark">
+                    ${data[i]}	                            
+                  </td>
+                 </tr>
+   	  			`;
+   	  			deltabin.push(data[i]);
+   	  		 }
+   	  		}
+   	  	});
+   	  }
+   },1000);
+
+ 
+
+
+</script>
+</html>
