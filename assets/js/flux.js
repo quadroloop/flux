@@ -65,7 +65,7 @@ function nav(link){
 }
 
 var web3 = new Web3(new Web3.providers.HttpProvider(
-    'https://ropsten.infura.io/ae31894cbb114dd99f75fe8e0a2b3367'
+    'https://ropsten.infura.io/v3/ae31894cbb114dd99f75fe8e0a2b3367'
 ));
 
 var accounts = {};
