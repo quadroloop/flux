@@ -12,6 +12,9 @@
  - Monitor balance
  - Catch events in the Account, if it gained or lost an amount of ether.
  - smooth, and easy management of monitored contracts or accounts
+
+ ### developement status:
+ - Version 2 planning phase.
  
 ### Tech:
  > flux is built using the following technologies and projects:
