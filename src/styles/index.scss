@@ -1,3 +1,84 @@
 body{
   font-family: Lato;
+  overflow-x: hidden;
+}
+
+.App{
+  overflow-x: hidden !important;
+}
+
+.top-half{
+  background: rgb(37, 5, 73);
+  min-height: 55vh;
+  top: 0px;
+  right: 0px;
+  width: 100vw;
+
+  h1,p,h2,i{
+  color: #fff !important;
+  }
+
+  div{
+    padding: 10px;
+  }
+
+}
+
+
+.flux-table{
+  max-height: 330px;
+}
+
+
+.trace-chart{
+  button{
+    display: none;
+  }
+}
+
+.tabs{
+  maxw-height: 330px;
+  .tab-nav{
+    list-style: none;
+
+    span{
+      float: left;
+      margin-right: 20px;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &.active{
+       color: #fff;
+       cursor: default;
+       background: linear-gradient(to right,rgb(92, 206, 206),rgb(46, 129, 224));
+      }
+    }
+
+  }
+}
+
+
+.status{
+
+  font-size: 12px;
+
+  &.loss{
+    color: rgb(235, 120, 120);
+    padding: 5px 10px;
+    background: rgba(240, 182, 182, 0.5);
+    border: 0.5px solid rgb(243, 137, 137);
+    border-radius: 3px;
+  }
+
+  &.gain{
+    color: rgb(27, 143, 108);
+    padding: 5px 10px;
+    background: rgba(166, 240, 224, 0.5);
+    border: 0.5px solid rgb(26, 144, 109);
+    border-radius: 3px;
+  }
 }
