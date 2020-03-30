@@ -8,7 +8,7 @@ body{
 }
 
 .top-half{
-  background: rgb(37, 5, 73);
+  background: rgb(30, 3, 61);
   min-height: 55vh;
   top: 0px;
   right: 0px;
@@ -81,4 +81,19 @@ body{
     border: 0.5px solid rgb(26, 144, 109);
     border-radius: 3px;
   }
+}
+
+.info-card{
+  max-height: 450px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+
+  .account-card{
+    background: rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
 }
