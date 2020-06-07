@@ -16,35 +16,52 @@ const InfoCard = () => {
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-up" /> 1 ETH + 0.999 ETH
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-down" /> 1 ETH - {Math.random()} ETH
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-up" /> 1 ETH + 0.999 ETH
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-down" /> 1 ETH - {Math.random()} ETH
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-up" /> 1 ETH + 0.999 ETH
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-down" /> 1 ETH - {Math.random()} ETH
+      </div>
+
+
+      <div className="account-card">
+        <i className="la la-arrow-up" /> 1 ETH + 0.999 ETH
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-down" /> 1 ETH - {Math.random()} ETH
       </div>
 
       <div className="account-card">
-        1 ETH + 0.999 ETH
+        <i className="la la-arrow-up" /> 1 ETH + 0.999 ETH
+      </div>
+
+      <div className="account-card">
+        <i className="la la-arrow-down" /> 1 ETH - {Math.random()} ETH
+      </div>
+
+      <div className="account-card">
+        <i className="la la-arrow-up" /> 1 ETH + 0.999 ETH
+      </div>
+
+      <div className="account-card">
+        <i className="la la-arrow-down" /> 1 ETH - {Math.random()} ETH
       </div>
 
     </div>

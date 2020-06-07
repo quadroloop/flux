@@ -84,7 +84,7 @@ body{
 }
 
 .info-card{
-  max-height: 350px;
+  max-height: 390px;
   width: 100%;
   margin-top: 75px !important;
   overflow: hidden;
@@ -96,6 +96,14 @@ body{
     padding: 10px;
     font-size: 13px;
     margin-bottom: 10px;
+
+    .la-arrow-down{
+      color: rgb(236, 113, 113) !important;
+    }
+
+    .la-arrow-up{
+      color: rgb(113, 236, 215) !important;
+    }
   }
 
 }
