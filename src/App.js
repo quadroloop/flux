@@ -18,7 +18,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="row d-flex justify-content-center">
+      <div className="row d-flex justify-content-center pt-3" id="info-segment">
         <div className="col-md-8 p-3">
           <Table />
         </div>
