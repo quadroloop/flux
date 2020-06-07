@@ -9,7 +9,7 @@ const Tabs = () => {
 
   const AddAccount = () => {
     return (
-      <div className="tab">
+      <div className="tab d-flex justify-content-center">
         <div className="small py-3">
           <h3>Add a new account</h3>
           <small className="text-muted">Provide the information below to and click the 'Add' button.</small>
